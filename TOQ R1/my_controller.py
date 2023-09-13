@@ -150,7 +150,7 @@ while robot.step(time) != -1:
             rectify = pid(error)
             print(rectify)
             setSpeed(4,-1*rectify)
-            print("Case wtf1")
+            print("Case 1")
           
     
     elif ds_val[7] > 950 and ds_val[8] < 950 and ds_val[0] > 950 and ds_val[1] < 950:
@@ -158,7 +158,7 @@ while robot.step(time) != -1:
             rectify = pid(error)
             print(rectify)
             setSpeed(4,-1*rectify)
-            print("Case wtf3")
+            print("Case 2")
             
             if ds_val[4] < 950:
                 led[0].set(1)
@@ -181,22 +181,22 @@ while robot.step(time) != -1:
                                                      
     elif ds_val[2] > 950 and ds_val[3] < 950 and ds_val[0] > 950 and ds_val[5] > 950:           
             setSpeed(3,3)
-            print("Case 1")
+            print("Case 3")
                 
     elif ds_val[2] < 950 and ds_val[3] > 950 and ds_val[1] > 950 and ds_val[5] > 950:            
             setSpeed(3,-3)
-            print("Case 2")         
+            print("Case 4")         
            
     elif ds_val[0] > 950 and ds_val[1] > 950 and ds_val[2] > 950 and ds_val[3] > 950 and ds_val[5] < 950:            
             setSpeed(3,0)            
-            print("Case 3")
+            print("Case 5")
              
     elif ds_val[0] > 950 and ds_val[2] > 950 and ds_val[5] > 950:
             error = ds_val[1] - 200
             rectify = pid(error)
             print(rectify)
             setSpeed(0.4,-3*rectify)
-            print("Case 5")
+            print("Case 6")
     
     a = ctr%2
     b = (ctr//2)%2

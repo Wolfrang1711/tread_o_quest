@@ -62,8 +62,7 @@ while robot.step(time) != -1:
     
         ds_val[i] = ds[i].getValue()
         print(f"{ds_names[i]} : {ds_val[i]}\n" + "*"*40 )
-    
-    
+
     print(int(ctr))
         
     
@@ -93,16 +92,12 @@ while robot.step(time) != -1:
                 
             elif ds_val[5] > 950:
                 led[2].set(0)         
-            
-            
-                  
+              
             if ds_val[0] < 650 and ds_val[1] < 650:
                led[0].set(1)
                led[1].set(1)
                led[2].set(1)
-               
-               
-   
+
     elif ds_val[2] < 950 and ds_val[3] < 950 and ds_val[0] < 950 and ds_val[1] < 950:
             print("Case 00")
             led[1].set(0)
@@ -135,25 +130,21 @@ while robot.step(time) != -1:
                 print("Case 03")
                 if ds_val[4] < 700:               
                     setSpeed(3,2)
-                    print("Case 03A")
-                                
-            
+                    print("Case 03A") 
     
     elif ds_val[7] < 950 and ds_val[8] > 950 and ds_val[0] < 950 and ds_val[1] > 950:
             error = 0
             rectify = pid(error)
             print(rectify)
             setSpeed(4,-1*rectify)
-            print("Case wtf1")
-            
-            
-    
+            print("Case 2")
+
     elif ds_val[7] > 950 and ds_val[8] < 950 and ds_val[0] > 950 and ds_val[1] < 950:
             error = 0
             rectify = pid(error)
             print(rectify)
             setSpeed(4,-1*rectify)
-            print("Case wtf3")
+            print("Case 3")
             if ds_val[4] < 950:
                 led[0].set(1)
                 
@@ -171,38 +162,29 @@ while robot.step(time) != -1:
         
             if ds_val[5]<950 and ds_val[10]>950:
                  ctr=ctr+1
-            
-            
-   
                                                      
     elif ds_val[2] > 950 and ds_val[3] < 950 and ds_val[0] > 950 and ds_val[5] > 950:
             
             setSpeed(3,3)
-            print("Case 1")
+            print("Case 4")
                 
     elif ds_val[2] < 950 and ds_val[3] > 950 and ds_val[1] > 950 and ds_val[5] > 950:
             
             setSpeed(3,-3)
-            print("Case 2")         
+            print("Case 5")         
            
     elif ds_val[0] > 950 and ds_val[1] > 950 and ds_val[2] > 950 and ds_val[3] > 950 and ds_val[5] < 950:
            
             setSpeed(3,0)
-            
-            print("Case 3")
-            
-                
-    
-   
-                           
+            print("Case 6")
+                   
     elif ds_val[0] > 950 and temp==0:
             error = ds_val[1] - 200
             rectify = pid(error)
             print(rectify)
             setSpeed(0.4,-1*rectify)
-            print("Case 5")
-    
-    
+            print("Case 7")
+
     a = ctr%2
     b = (ctr//2)%2
     c = (ctr//2)//2
@@ -210,6 +192,5 @@ while robot.step(time) != -1:
         led[0].set(int(a))
         led[1].set(int(b))
         led[2].set(int(c))  
-    
-                           
+                      
     pass
